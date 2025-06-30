@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTL Layout Test - MAROO GAMER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 20, 147, 0.3);
+        }
+        
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-btn {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+        }
+        
+        .logo-test {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 20, 147, 0.1);
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff1493;
+        }
+        
+        .social-test {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        
+        .social-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 200px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .icon-test {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        
+        .icon-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .flag-test {
+            display: flex;
+            gap: 20px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .flag-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .kurdistan-flag {
+            display: inline-block;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+        
+        .flag-stripe {
+            width: 100%;
+            height: 33.33%;
+            position: absolute;
+            left: 0;
+        }
+        
+        .flag-stripe.red {
+            top: 0;
+            background: #DC143C;
+        }
+        
+        .flag-stripe.white {
+            top: 33.33%;
+            background: #FFFFFF;
+        }
+        
+        .flag-stripe.green {
+            top: 66.66%;
+            background: #228B22;
+        }
+        
+        .flag-sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            z-index: 1;
+        }
+        
+        /* RTL Styles */
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        [dir="rtl"] .logo-test {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .social-item {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .icon-item {
+            flex-direction: row-reverse;
+        }
+        
+        [dir="rtl"] .lang-switcher {
+            right: auto;
+            left: 20px;
+        }
+        
+        [dir="rtl"] .social-icon .fab,
+        [dir="rtl"] .social-icon .fas {
+            transform: scaleX(-1);
+        }
+        
+        [dir="rtl"] .fas.fa-arrow-right::before {
+            content: "\f060";
+        }
+        
+        [dir="rtl"] .fas.fa-arrow-left::before {
+            content: "\f061";
+        }
+        
+        h1, h2 {
+            color: #ff1493;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        
+        .status.success {
+            background: rgba(34, 139, 34, 0.2);
+            border: 1px solid #228B22;
+            color: #90EE90;
+        }
+        
+        .status.info {
+            background: rgba(255, 20, 147, 0.2);
+            border: 1px solid #ff1493;
+            color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switcher">
+        <button class="lang-btn" onclick="switchLanguage('en')">🇺🇸 EN</button>
+        <button class="lang-btn" onclick="switchLanguage('ku')">🏴 KU</button>
+        <button class="lang-btn" onclick="switchLanguage('ar')">🇸🇦 AR</button>
+    </div>
+    
+    <div class="test-container">
+        <h1 id="title">RTL Layout & Icons Test</h1>
+        
+        <div class="status info">
+            <span id="current-lang">Current Language: English (LTR)</span>
+        </div>
+        
+        <div class="test-section">
+            <h2 id="logo-title">Logo & Branding Test</h2>
+            <div class="logo-test">
+                <div class="logo-img">🎮</div>
+                <div class="logo-text" id="logo-text">MAROO GAMER</div>
+            </div>
+            <div class="status success">
+                ✅ Logo positioning and text direction
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2 id="flags-title">Country Flags Test</h2>
+            <div class="flag-test">
+                <div class="flag-item">
+                    <div>🇺🇸</div>
+                    <div>United States</div>
+                </div>
+                <div class="flag-item">
+                    <div class="kurdistan-flag">
+                        <div class="flag-stripe red"></div>
+                        <div class="flag-stripe white"></div>
+                        <div class="flag-stripe green"></div>
+                        <div class="flag-sun">☀️</div>
+                    </div>
+                    <div id="kurdistan-label">Kurdistan</div>
+                </div>
+                <div class="flag-item">
+                    <div>🇸🇦</div>
+                    <div id="saudi-label">Saudi Arabia</div>
+                </div>
+            </div>
+            <div class="status success">
+                ✅ Custom Kurdistan flag and country labels
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2 id="social-title">Social Media Icons Test</h2>
+            <div class="social-test">
+                <div class="social-item">
+                    <div class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div id="youtube-text">YouTube Channel</div>
+                </div>
+                <div class="social-item">
+                    <div class="social-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div id="discord-text">Discord Server</div>
+                </div>
+                <div class="social-item">
+                    <div class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div id="tiktok-text">TikTok Profile</div>
+                </div>
+            </div>
+            <div class="status success">
+                ✅ Social media icons with RTL mirroring
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2 id="icons-title">Directional Icons Test</h2>
+            <div class="icon-test">
+                <div class="icon-item">
+                    <i class="fas fa-arrow-right"></i>
+                    <span id="arrow-right">Arrow Right</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-arrow-left"></i>
+                    <span id="arrow-left">Arrow Left</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-chevron-right"></i>
+                    <span id="chevron-right">Chevron Right</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-chevron-left"></i>
+                    <span id="chevron-left">Chevron Left</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-play"></i>
+                    <span id="play-text">Play Button</span>
+                </div>
+            </div>
+            <div class="status success">
+                ✅ Directional icons automatically flip in RTL
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2 id="layout-title">Layout Direction Test</h2>
+            <div class="status info" id="layout-status">
+                Layout direction will change based on selected language
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const translations = {
+            en: {
+                title: 'RTL Layout & Icons Test',
+                'current-lang': 'Current Language: English (LTR)',
+                'logo-title': 'Logo & Branding Test',
+                'logo-text': 'MAROO GAMER',
+                'flags-title': 'Country Flags Test',
+                'kurdistan-label': 'Kurdistan',
+                'saudi-label': 'Saudi Arabia',
+                'social-title': 'Social Media Icons Test',
+                'youtube-text': 'YouTube Channel',
+                'discord-text': 'Discord Server',
+                'tiktok-text': 'TikTok Profile',
+                'icons-title': 'Directional Icons Test',
+                'arrow-right': 'Arrow Right',
+                'arrow-left': 'Arrow Left',
+                'chevron-right': 'Chevron Right',
+                'chevron-left': 'Chevron Left',
+                'play-text': 'Play Button',
+                'layout-title': 'Layout Direction Test',
+                'layout-status': 'Layout direction: Left-to-Right (LTR)'
+            },
+            ku: {
+                title: 'تاقیکردنەوەی RTL و ئایکۆنەکان',
+                'current-lang': 'زمانی ئێستا: کوردی (RTL)',
+                'logo-title': 'تاقیکردنەوەی لۆگۆ و براند',
+                'logo-text': 'مارۆ گەیمەر',
+                'flags-title': 'تاقیکردنەوەی ئاڵای وڵاتان',
+                'kurdistan-label': 'کوردستان',
+                'saudi-label': 'عەرەبستانی سعودی',
+                'social-title': 'تاقیکردنەوەی ئایکۆنی سۆشیال میدیا',
+                'youtube-text': 'کەناڵی یوتیوب',
+                'discord-text': 'سێرڤەری دیسکۆرد',
+                'tiktok-text': 'پرۆفایلی تیکتۆک',
+                'icons-title': 'تاقیکردنەوەی ئایکۆنی ئاراستەدار',
+                'arrow-right': 'تیری ڕاست',
+                'arrow-left': 'تیری چەپ',
+                'chevron-right': 'شیڤرۆنی ڕاست',
+                'chevron-left': 'شیڤرۆنی چەپ',
+                'play-text': 'دوگمەی پلەی',
+                'layout-title': 'تاقیکردنەوەی ئاراستەی لەیاوت',
+                'layout-status': 'ئاراستەی لەیاوت: ڕاست بۆ چەپ (RTL)'
+            },
+            ar: {
+                title: 'اختبار تخطيط RTL والأيقونات',
+                'current-lang': 'اللغة الحالية: العربية (RTL)',
+                'logo-title': 'اختبار الشعار والعلامة التجارية',
+                'logo-text': 'مارو جيمر',
+                'flags-title': 'اختبار أعلام البلدان',
+                'kurdistan-label': 'كردستان',
+                'saudi-label': 'المملكة العربية السعودية',
+                'social-title': 'اختبار أيقونات وسائل التواصل الاجتماعي',
+                'youtube-text': 'قناة يوتيوب',
+                'discord-text': 'خادم ديسكورد',
+                'tiktok-text': 'ملف تيك توك',
+                'icons-title': 'اختبار الأيقونات الاتجاهية',
+                'arrow-right': 'سهم يمين',
+                'arrow-left': 'سهم يسار',
+                'chevron-right': 'شيفرون يمين',
+                'chevron-left': 'شيفرون يسار',
+                'play-text': 'زر التشغيل',
+                'layout-title': 'اختبار اتجاه التخطيط',
+                'layout-status': 'اتجاه التخطيط: من اليمين إلى اليسار (RTL)'
+            }
+        };
+        
+        function switchLanguage(lang) {
+            // Update HTML attributes
+            document.documentElement.setAttribute('lang', lang);
+            
+            if (lang === 'ku' || lang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.body.style.fontFamily = "'Noto Sans Arabic', Arial, sans-serif";
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.body.style.fontFamily = "Arial, sans-serif";
+            }
+            
+            // Update all translatable elements
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            console.log(`Language switched to: ${lang}`);
+        }
+        
+        // Initialize with English
+        switchLanguage('en');
+    </script>
+</body>
+</html>

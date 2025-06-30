@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="page.title">Language Test - MAROO GAMER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Arial', sans-serif; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a); 
+            color: white; 
+            transition: all 0.3s ease;
+        }
+        .test-section { 
+            margin: 20px 0; 
+            padding: 20px; 
+            border: 1px solid #333; 
+            border-radius: 15px; 
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        .lang-button { 
+            margin: 5px; 
+            padding: 12px 20px; 
+            background: linear-gradient(135deg, #ff1493, #ff69b4); 
+            color: white; 
+            border: none; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+        }
+        .lang-button:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 20, 147, 0.5);
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .feature-list i {
+            color: #ff1493;
+            margin-right: 10px;
+            width: 20px;
+        }
+        .keyboard-shortcut {
+            background: #333;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .rtl-demo {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 20, 147, 0.1);
+            border-radius: 10px;
+        }
+        
+        /* Kurdish and Arabic text rendering */
+        [lang="ku"], [lang="ku"] * {
+            font-family: 'Noto Sans Arabic', 'Arial Unicode MS', 'Tahoma', sans-serif !important;
+            unicode-bidi: embed;
+            direction: rtl;
+            text-align: right;
+            font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1;
+            -webkit-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1;
+        }
+        
+        [lang="ar"], [lang="ar"] * {
+            font-family: 'Noto Sans Arabic', 'Arial Unicode MS', 'Tahoma', sans-serif !important;
+            unicode-bidi: embed;
+            direction: rtl;
+            text-align: right;
+            font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1;
+            -webkit-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1;
+        }
+    </style>
+</head>
+<body>
+    <h1><i class="fas fa-globe"></i> <span data-translate="test.title">Language System Test</span></h1>
+    
+    <div class="test-section">
+        <h2><i class="fas fa-language"></i> <span data-translate="test.switcher">Language Switcher</span></h2>
+        <p data-translate="test.instruction">Click a button to test language switching:</p>
+        <button class="lang-button" onclick="testLanguage('en')">🇺🇸 English</button>
+        <button class="lang-button" onclick="testLanguage('ku')">
+            <span class="kurdistan-flag-inline">🟥🟨🟩</span> کوردی
+        </button>
+        <button class="lang-button" onclick="testLanguage('ar')">🇸🇦 العربية</button>
+        <p><small>Keyboard shortcut: <span class="keyboard-shortcut">Ctrl + L</span> to cycle languages</small></p>
+    </div>
+    
+    <div class="test-section">
+        <h2><i class="fas fa-check-circle"></i> <span data-translate="test.translations">Test Translations</span></h2>
+        <div class="rtl-demo">
+            <p><strong data-translate="nav.home">Home</strong></p>
+            <p data-translate="hero.welcome">WELCOME TO</p>
+            <p data-translate="about.title">About MAROO GAMER</p>
+            <p data-translate="social.title">Connect With Me</p>
+            <p data-translate="hero.subtitle">Gaming Content Creator & Streamer</p>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2><i class="fas fa-star"></i> <span data-translate="test.features">Language System Features</span></h2>
+        <ul class="feature-list">
+            <li><i class="fas fa-globe-americas"></i> <span data-translate="test.feature1">Auto-detect browser language</span></li>
+            <li><i class="fas fa-save"></i> <span data-translate="test.feature2">Remember language preference</span></li>
+            <li><i class="fas fa-arrows-alt-h"></i> <span data-translate="test.feature3">RTL support for Arabic & Kurdish</span></li>
+            <li><i class="fas fa-keyboard"></i> <span data-translate="test.feature4">Keyboard shortcuts (Ctrl+L)</span></li>
+            <li><i class="fas fa-bell"></i> <span data-translate="test.feature5">Language change notifications</span></li>
+            <li><i class="fas fa-mobile-alt"></i> <span data-translate="test.feature6">Mobile responsive design</span></li>
+        </ul>
+    </div>
+    
+    <script>
+        const translations = {
+            en: {
+                'page.title': 'Language Test - MAROO GAMER',
+                'test.title': 'Language System Test',
+                'test.switcher': 'Language Switcher',
+                'test.instruction': 'Click a button to test language switching:',
+                'test.translations': 'Test Translations',
+                'test.features': 'Language System Features',
+                'test.feature1': 'Auto-detect browser language',
+                'test.feature2': 'Remember language preference',
+                'test.feature3': 'RTL support for Arabic & Kurdish',
+                'test.feature4': 'Keyboard shortcuts (Ctrl+L)',
+                'test.feature5': 'Language change notifications',
+                'test.feature6': 'Mobile responsive design',
+                'nav.home': 'Home',
+                'hero.welcome': 'WELCOME TO',
+                'about.title': 'About MAROO GAMER',
+                'social.title': 'Connect With Me',
+                'hero.subtitle': 'Gaming Content Creator & Streamer'
+            },
+            ku: {
+                'page.title': 'تاقیکردنەوەی زمان - MAROO GAMER',
+                'test.title': 'تاقیکردنەوەی سیستەمی زمان',
+                'test.switcher': 'گۆڕینی زمان',
+                'test.instruction': 'کلیک لە دوگمەیەک بکە بۆ تاقیکردنەوەی گۆڕینی زمان:',
+                'test.translations': 'تاقیکردنەوەی وەرگێڕان',
+                'test.features': 'تایبەتمەندییەکانی سیستەمی زمان',
+                'test.feature1': 'خۆکارانە زمانی وێبگەڕ دەدۆزێتەوە',
+                'test.feature2': 'هەڵبژاردنی زمان لەبیر دەگرێت',
+                'test.feature3': 'پشتگیری RTL بۆ عەرەبی و کوردی',
+                'test.feature4': 'کورتبڕی تەختەکلیل (Ctrl+L)',
+                'test.feature5': 'ئاگادارکردنەوەی گۆڕینی زمان',
+                'test.feature6': 'دیزاینی وەڵامدەرەوە بۆ مۆبایل',
+                'nav.home': 'ماڵەوە',
+                'hero.welcome': 'بەخێربێن بۆ',
+                'about.title': 'دەربارەی MAROO GAMER',
+                'social.title': 'پەیوەندیم لەگەڵ بکە',
+                'hero.subtitle': 'دروستکەری ناوەڕۆکی یاری و ستریمەر'
+            },
+            ar: {
+                'page.title': 'اختبار اللغة - MAROO GAMER',
+                'test.title': 'اختبار نظام اللغة',
+                'test.switcher': 'مبدل اللغة',
+                'test.instruction': 'انقر على زر لاختبار تبديل اللغة:',
+                'test.translations': 'اختبار الترجمات',
+                'test.features': 'ميزات نظام اللغة',
+                'test.feature1': 'اكتشاف تلقائي للغة المتصفح',
+                'test.feature2': 'تذكر تفضيل اللغة',
+                'test.feature3': 'دعم RTL للعربية والكردية',
+                'test.feature4': 'اختصارات لوحة المفاتيح (Ctrl+L)',
+                'test.feature5': 'إشعارات تغيير اللغة',
+                'test.feature6': 'تصميم متجاوب للجوال',
+                'nav.home': 'الرئيسية',
+                'hero.welcome': 'مرحباً بك في',
+                'about.title': 'حول MAROO GAMER',
+                'social.title': 'تواصل معي',
+                'hero.subtitle': 'منشئ محتوى الألعاب والبث المباشر'
+            }
+        };
+        
+        let currentLang = 'en';
+        
+        function testLanguage(lang) {
+            currentLang = lang;
+            
+            // Update HTML lang attribute
+            document.documentElement.setAttribute('lang', lang);
+            
+            // Update document direction for RTL languages
+            if (lang === 'ar' || lang === 'ku') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.body.style.textAlign = 'right';
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.body.style.textAlign = 'left';
+            }
+            
+            // Update all translatable elements
+            const translatableElements = document.querySelectorAll('[data-translate]');
+            translatableElements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'TITLE') {
+                        document.title = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Show notification
+            showNotification(lang);
+            
+            console.log(`Language changed to: ${lang}`);
+        }
+        
+        function showNotification(lang) {
+            const langNames = { en: 'English', ku: 'کوردی', ar: 'العربية' };
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #ff1493, #ff69b4);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 25px;
+                box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3);
+                z-index: 10000;
+                font-weight: 600;
+                opacity: 0;
+                transform: translateX(100px);
+                transition: all 0.3s ease;
+            `;
+            notification.innerHTML = `<i class="fas fa-globe"></i> Language: ${langNames[lang]}`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+        
+        // Keyboard shortcut
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
+                e.preventDefault();
+                const languages = ['en', 'ku', 'ar'];
+                const currentIndex = languages.indexOf(currentLang);
+                const nextIndex = (currentIndex + 1) % languages.length;
+                testLanguage(languages[nextIndex]);
+            }
+        });
+    </script>
+</body>
+</html>

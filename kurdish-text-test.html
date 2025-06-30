@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurdish Text Connection Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', 'Arial Unicode MS', 'Tahoma', sans-serif;
+            direction: rtl;
+            text-align: right;
+            padding: 20px;
+            background: #0a0a0a;
+            color: white;
+            font-size: 18px;
+            line-height: 1.6;
+            font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1;
+            -webkit-font-feature-settings: "calt" 1, "liga" 1, "clig" 1, "kern" 1;
+            unicode-bidi: embed;
+        }
+        
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #ff1493;
+            border-radius: 15px;
+            background: rgba(255, 20, 147, 0.1);
+        }
+        
+        .large-text {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+        
+        .normal-text {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        
+        .small-text {
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        h1, h2 {
+            color: #ff1493;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>تاقیکردنەوەی پەیوەستبوونی نووسەی کوردی</h1>
+    
+    <div class="test-section">
+        <h2>نموونەی دەقی کوردی</h2>
+        <div class="large-text">بەخێربێن بۆ گەردوونی یاریەکانم!</div>
+        <div class="normal-text">من MAROO GAMER ـم، دروستکەرێکی ناوەڕۆکی دڵگەرمم</div>
+        <div class="normal-text">بەشداری کۆمەڵگا بکە</div>
+        <div class="normal-text">پەیوەندیم لەگەڵ بکە</div>
+        <div class="small-text">دروستکەری ناوەڕۆکی یاری و ستریمەر</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>تاقیکردنەوەی وشە پەیوەستەکان</h2>
+        <div class="large-text">بەناو جیهانی یاریەکاندا</div>
+        <div class="normal-text">لەگەڵم بن لەم گەشتە نایابەدا</div>
+        <div class="normal-text">بەشداری کۆمەڵگای یاریەکانمان بکە</div>
+        <div class="normal-text">شوێنم بکەوە بۆ ئامۆژگاری خێرای یاری</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>پێکهاتەی نووسە</h2>
+        <div class="normal-text">
+            <strong>پیتەکان:</strong> ب + ە + خ + ێ + ر + ب + ێ + ن = بەخێربێن
+        </div>
+        <div class="normal-text">
+            <strong>وشەکان:</strong> بە + ناو = بەناو
+        </div>
+        <div class="normal-text">
+            <strong>ڕستە:</strong> بەخێربێن بۆ گەردوونی یاریەکانم!
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>بەراوردکردن</h2>
+        <div class="normal-text">
+            <strong>پێش چاککردن:</strong> بە خێربێن (جیا)
+        </div>
+        <div class="normal-text">
+            <strong>دوای چاککردن:</strong> بەخێربێن (پەیوەست)
+        </div>
+    </div>
+    
+    <script>
+        console.log('Kurdish text test loaded');
+        console.log('Font family:', getComputedStyle(document.body).fontFamily);
+        console.log('Direction:', getComputedStyle(document.body).direction);
+        console.log('Text align:', getComputedStyle(document.body).textAlign);
+    </script>
+</body>
+</html>
